@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.erzhanov.healthcheck;
+
+message HealthCheckRequest {
+    string url = 1;
+}
+
+message HealthCheckResponse {
+    string code = 1;
+    string time = 2;
+}
+
+service HealthCheckService {
+    rpc ping(HealthCheckRequest) returns (HealthCheckResponse);
+}
