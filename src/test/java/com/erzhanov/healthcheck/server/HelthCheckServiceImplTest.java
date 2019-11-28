@@ -12,11 +12,10 @@ import com.erzhanov.healthcheck.HealthCheckServiceGrpc;
 public class HelthCheckServiceImplTest extends AbstractGrpcTest {
 
     @Test
-    void shouldReturn() {
+    void shouldReturnResponseWithBlockingCall() {
         //given
         HealthCheckResponse expected = HealthCheckResponse.newBuilder()
-                .setCode("google.com 200 OK")
-                .setTime("200ms")
+                .setCode("200")
                 .build();
 
         //when
@@ -26,6 +25,5 @@ public class HelthCheckServiceImplTest extends AbstractGrpcTest {
 
         //then
         assertThat(response.getCode()).isEqualTo(expected.getCode());
-        assertThat(response.getTime()).isEqualTo(expected.getTime());
     }
 }
